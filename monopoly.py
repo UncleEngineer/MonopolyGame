@@ -7,99 +7,99 @@ gojail = {'G01':{'code':'G01','name':'Go to Jail'}}
 stop = {'T01':{'code':'T01','name':'Stop'}}
 
 land = {'101':{ 'code':'101',
-				'name':'พารากอน',
+				'name':'กรุงเทพ',
 				'price': 2000,
 				'rent': 100},
 		'102':{ 'code':'102',
-				'name':'รัฐสภา',
+				'name':'เชียงใหม่',
 				'price': 2000,
 				'rent': 100},
 		'103':{ 'code':'103',
-				'name':'รัฐสภา',
+				'name':'ภูเก็ต',
 				'price': 2000,
 				'rent': 100},
 		'104':{ 'code':'104',
-				'name':'รัฐสภา',
+				'name':'นครราชสีมา',
 				'price': 2000,
 				'rent': 100},
 		'105':{ 'code':'105',
-				'name':'รัฐสภา',
+				'name':'ปทุมธานี',
 				'price': 2000,
 				'rent': 100},
 		'106':{ 'code':'106',
-				'name':'พารากอน',
+				'name':'ชลบุรี',
 				'price': 2000,
 				'rent': 100},
 		'107':{ 'code':'107',
-				'name':'รัฐสภา',
+				'name':'ระยอง',
 				'price': 2000,
 				'rent': 100},
 		'108':{ 'code':'108',
-				'name':'รัฐสภา',
+				'name':'อยุธยา',
 				'price': 2000,
 				'rent': 100},
 		'109':{ 'code':'109',
-				'name':'รัฐสภา',
+				'name':'กาญจนบุรี',
 				'price': 2000,
 				'rent': 100},
 		'110':{ 'code':'110',
-				'name':'รัฐสภา',
+				'name':'สุพรรณบุรี',
 				'price': 2000,
 				'rent': 100},
 		'111':{ 'code':'111',
-				'name':'พารากอน',
+				'name':'ตราด',
 				'price': 2000,
 				'rent': 100},
 		'112':{ 'code':'112',
-				'name':'รัฐสภา',
+				'name':'ตาก',
 				'price': 2000,
 				'rent': 100},
 		'113':{ 'code':'113',
-				'name':'รัฐสภา',
+				'name':'เลย',
 				'price': 2000,
 				'rent': 100},
 		'114':{ 'code':'114',
-				'name':'รัฐสภา',
+				'name':'ตรัง',
 				'price': 2000,
 				'rent': 100},
 		'115':{ 'code':'115',
-				'name':'รัฐสภา',
+				'name':'ยะลา',
 				'price': 2000,
 				'rent': 100},
 		'116':{ 'code':'116',
-				'name':'พารากอน',
+				'name':'สตูล',
 				'price': 2000,
 				'rent': 100},
 		'117':{ 'code':'117',
-				'name':'รัฐสภา',
+				'name':'พังงา',
 				'price': 2000,
 				'rent': 100},
 		'118':{ 'code':'118',
-				'name':'รัฐสภา',
+				'name':'ชุมพร',
 				'price': 2000,
 				'rent': 100},
 		'119':{ 'code':'119',
-				'name':'รัฐสภา',
+				'name':'เชียงราย',
 				'price': 2000,
 				'rent': 100},
 		'120':{ 'code':'120',
-				'name':'รัฐสภา',
+				'name':'สมุทรสาคร',
 				'price': 2000,
 				'rent': 100},
 		'121':{ 'code':'121',
-				'name':'พารากอน',
+				'name':'น่าน',
 				'price': 2000,
 				'rent': 100},
 		'122':{ 'code':'122',
-				'name':'รัฐสภา',
+				'name':'แพร่',
 				'price': 2000,
 				'rent': 100},
 		'123':{ 'code':'123',
-				'name':'รัฐสภา',
+				'name':'สมุทรปราการ',
 				'price': 2000,
 				'rent': 100},
 		'124':{ 'code':'124',
-				'name':'รัฐสภา',
+				'name':'อุทัยธานี',
 				'price': 2000,
 				'rent': 100}
 			 }
@@ -240,7 +240,7 @@ for i,r in enumerate(row1):
 	newbox = Box(box,x1,y1,x2,y2)
 	newbox.info = r
 	allbox.append(newbox)
-	L = ttk.Label(GUI,text='{}\n{}'.format(r['code'],r['name']))
+	L = ttk.Label(GUI,text='{}\n{}'.format(r['code'],r['name']),background='white')
 	L.place(x=x1 + 5,y=y1 + 5)
 # Generate Box Row 2
 for i,r in enumerate(row2):
@@ -252,7 +252,7 @@ for i,r in enumerate(row2):
 	newbox = Box(box,x1,y1,x2,y2)
 	newbox.info = r
 	allbox.append(newbox)
-	L = ttk.Label(GUI,text='{}\n{}'.format(r['code'],r['name']))
+	L = ttk.Label(GUI,text='{}\n{}'.format(r['code'],r['name']),background='white')
 	L.place(x=x1 + 5,y=y1 + 5)
 # Generate Box Row 3
 for i,r in enumerate(row3):
@@ -264,7 +264,7 @@ for i,r in enumerate(row3):
 	newbox = Box(box,x1,y1,x2,y2)
 	newbox.info = r
 	allbox.append(newbox)
-	L = ttk.Label(GUI,text='{}\n{}'.format(r['code'],r['name']))
+	L = ttk.Label(GUI,text='{}\n{}'.format(r['code'],r['name']),background='white')
 	L.place(x=x1 + 5,y=y1 + 5)
 # Generate Box Row 4
 for i,r in enumerate(row4):
@@ -276,14 +276,14 @@ for i,r in enumerate(row4):
 	newbox = Box(box,x1,y1,x2,y2)
 	newbox.info = r
 	allbox.append(newbox)
-	L = ttk.Label(GUI,text='{}\n{}'.format(r['code'],r['name']))
+	L = ttk.Label(GUI,text='{}\n{}'.format(r['code'],r['name']),background='white')
 	L.place(x=x1 + 5,y=y1 + 5)
 
 print('COUNT:',len(allbox))
 
-canvas.itemconfig(allbox[5].box,fill='red') #change color of a box
+#canvas.itemconfig(allbox[5].box,fill='red') #change color of a box
 
-print(allbox)
+#print(allbox)
 
 
 allplayer = []
@@ -308,31 +308,32 @@ import random
 
 current = 0
 countplayer = len(allplayer)
+turn = 0
 
 def RunPlayer():
+	global turn
+	if turn > 0:
+		global current
+		print('CURRENT:',current)
+		rand = random.randint(1,6)
+		select = allplayer[current]
+		select.move += rand
+		print('ครั้งนี้เดินไปตาที่: ', select.move)
+		if select.move >= 36:
+			canvas.itemconfig(allbox[select.move % 36].box,fill=select.color)
+			allbox[select.move  % 36].players.append(select)
+			canvas.itemconfig(select.location.box,fill='white')
+			select.location = allbox[select.move % 36] # allbox[select.move] ต้อง /
+		else:
+			canvas.itemconfig(allbox[select.move].box,fill=select.color)
+			allbox[select.move].players.append(select)
+			canvas.itemconfig(select.location.box,fill='white')
+			select.location = allbox[select.move] # allbox[select.move] ต้อง /
 
-	global current
-	print('CURRENT:',current)
-	rand = random.randint(1,6)
-	select = allplayer[current]
-	select.move += rand
-	print('ครั้งนี้เดินไปตาที่: ', select.move)
-	if select.move >= 36:
-		canvas.itemconfig(allbox[select.move % 36].box,fill=select.color)
-		allbox[select.move  % 36].players.append(select)
-		canvas.itemconfig(select.location.box,fill='white')
-		select.location = allbox[select.move % 36] # allbox[select.move] ต้อง /
-	else:
-		canvas.itemconfig(allbox[select.move].box,fill=select.color)
-		allbox[select.move].players.append(select)
-		canvas.itemconfig(select.location.box,fill='white')
-		select.location = allbox[select.move] # allbox[select.move] ต้อง /
-
-	current += 1
-	if current == countplayer:
-		current = 0
-	
-
+		current += 1
+		if current == countplayer:
+			current = 0
+	turn += 1
 	GUI.after(2000,RunPlayer)
 
 RunPlayer()
