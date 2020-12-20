@@ -158,6 +158,8 @@ class Player:
 		self.property = []
 		self.land = []
 		self.move = 0
+		self.location = None
+		self.color = 'red'
 
 class Banker:
 
@@ -228,6 +230,7 @@ allbox = []
 
 boxsize = 70
 
+# Generate Box Row 1
 for i,r in enumerate(row1):
 	x1 = 710 - ((i+1) * boxsize)
 	y1 = 710 - boxsize
@@ -237,17 +240,100 @@ for i,r in enumerate(row1):
 	newbox = Box(box,x1,y1,x2,y2)
 	newbox.info = r
 	allbox.append(newbox)
-
-'''
-x1 = 710 - boxsize
-	y1 = 710 - (i * boxsize)
-	x2 = 710
+	L = ttk.Label(GUI,text='{}\n{}'.format(r['code'],r['name']))
+	L.place(x=x1 + 5,y=y1 + 5)
+# Generate Box Row 2
+for i,r in enumerate(row2):
+	x1 = 10
+	y1 = 710 - (boxsize * (i+2))
+	x2 = x1 + boxsize
+	y2 = 710 - ((i+1) * boxsize)
+	box = canvas.create_rectangle(x1,y1,x2,y2,fill='white')
+	newbox = Box(box,x1,y1,x2,y2)
+	newbox.info = r
+	allbox.append(newbox)
+	L = ttk.Label(GUI,text='{}\n{}'.format(r['code'],r['name']))
+	L.place(x=x1 + 5,y=y1 + 5)
+# Generate Box Row 3
+for i,r in enumerate(row3):
+	x1 = 10 + (i*boxsize)
+	y1 = 10
+	x2 = x1 + boxsize
 	y2 = y1 + boxsize
+	box = canvas.create_rectangle(x1,y1,x2,y2,fill='white')
+	newbox = Box(box,x1,y1,x2,y2)
+	newbox.info = r
+	allbox.append(newbox)
+	L = ttk.Label(GUI,text='{}\n{}'.format(r['code'],r['name']))
+	L.place(x=x1 + 5,y=y1 + 5)
+# Generate Box Row 4
+for i,r in enumerate(row4):
+	x1 = 710 - boxsize
+	y1 = 10 + ((i+1)*boxsize)
+	x2 = x1 + boxsize
+	y2 = y1 + boxsize
+	box = canvas.create_rectangle(x1,y1,x2,y2,fill='white')
+	newbox = Box(box,x1,y1,x2,y2)
+	newbox.info = r
+	allbox.append(newbox)
+	L = ttk.Label(GUI,text='{}\n{}'.format(r['code'],r['name']))
+	L.place(x=x1 + 5,y=y1 + 5)
 
-'''
+print('COUNT:',len(allbox))
 
 canvas.itemconfig(allbox[5].box,fill='red') #change color of a box
 
 print(allbox)
 
+
+allplayer = []
+
+p1 = Player('Loong','P101')
+p1.color = 'red'
+p2 = Player('Somchai','P102')
+p2.color = 'green'
+
+
+
+allplayer.append(p1)
+allplayer.append(p2)
+
+# ทำให้ player ทุกคนอยู่ที่จุดเริ่มต้น
+for py in allplayer:
+	allbox[0].players.append(py)
+	py.location = allbox[0]
+
+
+import random
+
+current = 0
+countplayer = len(allplayer)
+
+def RunPlayer():
+
+	global current
+	print('CURRENT:',current)
+	rand = random.randint(1,6)
+	select = allplayer[current]
+	select.move += rand
+	print('ครั้งนี้เดินไปตาที่: ', select.move)
+	if select.move >= 36:
+		canvas.itemconfig(allbox[select.move % 36].box,fill=select.color)
+		allbox[select.move  % 36].players.append(select)
+		canvas.itemconfig(select.location.box,fill='white')
+		select.location = allbox[select.move % 36] # allbox[select.move] ต้อง /
+	else:
+		canvas.itemconfig(allbox[select.move].box,fill=select.color)
+		allbox[select.move].players.append(select)
+		canvas.itemconfig(select.location.box,fill='white')
+		select.location = allbox[select.move] # allbox[select.move] ต้อง /
+
+	current += 1
+	if current == countplayer:
+		current = 0
+	
+
+	GUI.after(2000,RunPlayer)
+
+RunPlayer()
 GUI.mainloop()
