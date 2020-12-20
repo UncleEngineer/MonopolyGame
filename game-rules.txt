@@ -37,6 +37,7 @@
 ---Class---
 
 - Player
+	- id (player)
 	- move (int)
 	- name (str)
 	- money (int)
@@ -49,8 +50,8 @@
 	- money
 	- all_property (list)
 	- all_land (dict)
-	- all_lucky_card (dict)
-	- all_command ()
+	- all_lucky_card (list)
+	- all_command (list)
 
 ---Variable---
 
@@ -63,7 +64,7 @@ default_round = 20
 ALL = 36 Div
 - start_point = 1
 - jail = 1
-- land = 26
+- land = 24
 - lucky_card = 4
 - command = 4
 
