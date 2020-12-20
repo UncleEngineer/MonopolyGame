@@ -183,7 +183,7 @@ class Box:
 		self.y2 = y2
 		self.players = []
 
-
+allrow = []
 ###############DEFINE 1#################
 row1 = [] # 10 - ST1,LD6,L1,C1,J1
 for i in range(1,7):
@@ -193,12 +193,14 @@ row1.insert(0,start['S01'])
 row1.insert(2,card_name['L01'])
 row1.insert(4,command_name['C01'])
 row1.append(jail['J01'])
+allrow.append(row1)
 ###############DEFINE 2#################
 row2 = [] # 8 - LD6, L1, C1
 for i in range(7,13):
 	row2.append(land[str(100+i)])
 row2.insert(2,card_name['L01'])
 row2.insert(4,command_name['C01'])
+allrow.append(row2)
 ###############DEFINE 3#################
 row3 = [] # 10 - LD8, L1, C1
 for i in range(13,19):
@@ -207,6 +209,7 @@ row3.insert(0,stop['T01'])
 row3.insert(2,card_name['L01'])
 row3.insert(4,command_name['C01'])
 row3.append(gojail['G01'])
+allrow.append(row3)
 ###############DEFINE 4#################
 row4 = [] # 8 - 
 for i in range(19,25):
@@ -215,6 +218,7 @@ row4.insert(2,card_name['L01'])
 row4.insert(4,command_name['C01'])
 
 print(len(row1),len(row2),len(row3),len(row4))
+allrow.append(row4)
 
 from tkinter import *
 from tkinter import ttk
@@ -230,56 +234,36 @@ allbox = []
 
 boxsize = 70
 
-# Generate Box Row 1
-for i,r in enumerate(row1):
-	x1 = 710 - ((i+1) * boxsize)
-	y1 = 710 - boxsize
-	x2 = x1 + boxsize
-	y2 = 710
-	box = canvas.create_rectangle(x1,y1,x2,y2,fill='white')
-	newbox = Box(box,x1,y1,x2,y2)
-	newbox.info = r
-	allbox.append(newbox)
-	L = ttk.Label(GUI,text='{}\n{}'.format(r['code'],r['name']),background='white')
-	L.place(x=x1 + 5,y=y1 + 5)
-# Generate Box Row 2
-for i,r in enumerate(row2):
-	x1 = 10
-	y1 = 710 - (boxsize * (i+2))
-	x2 = x1 + boxsize
-	y2 = 710 - ((i+1) * boxsize)
-	box = canvas.create_rectangle(x1,y1,x2,y2,fill='white')
-	newbox = Box(box,x1,y1,x2,y2)
-	newbox.info = r
-	allbox.append(newbox)
-	L = ttk.Label(GUI,text='{}\n{}'.format(r['code'],r['name']),background='white')
-	L.place(x=x1 + 5,y=y1 + 5)
-# Generate Box Row 3
-for i,r in enumerate(row3):
-	x1 = 10 + (i*boxsize)
-	y1 = 10
-	x2 = x1 + boxsize
-	y2 = y1 + boxsize
-	box = canvas.create_rectangle(x1,y1,x2,y2,fill='white')
-	newbox = Box(box,x1,y1,x2,y2)
-	newbox.info = r
-	allbox.append(newbox)
-	L = ttk.Label(GUI,text='{}\n{}'.format(r['code'],r['name']),background='white')
-	L.place(x=x1 + 5,y=y1 + 5)
-# Generate Box Row 4
-for i,r in enumerate(row4):
-	x1 = 710 - boxsize
-	y1 = 10 + ((i+1)*boxsize)
-	x2 = x1 + boxsize
-	y2 = y1 + boxsize
-	box = canvas.create_rectangle(x1,y1,x2,y2,fill='white')
-	newbox = Box(box,x1,y1,x2,y2)
-	newbox.info = r
-	allbox.append(newbox)
-	L = ttk.Label(GUI,text='{}\n{}'.format(r['code'],r['name']),background='white')
-	L.place(x=x1 + 5,y=y1 + 5)
 
-print('COUNT:',len(allbox))
+for j,rw in enumerate(allrow):
+	for i,r in enumerate(rw):
+		if j == 0:
+			x1 = 710 - ((i+1) * boxsize)
+			y1 = 710 - boxsize
+			x2 = x1 + boxsize
+			y2 = 710
+		elif j == 1:
+			x1 = 10
+			y1 = 710 - (boxsize * (i+2))
+			x2 = x1 + boxsize
+			y2 = 710 - ((i+1) * boxsize)
+		elif j == 2:
+			x1 = 10 + (i*boxsize)
+			y1 = 10
+			x2 = x1 + boxsize
+			y2 = y1 + boxsize
+		else:
+			x1 = 710 - boxsize
+			y1 = 10 + ((i+1)*boxsize)
+			x2 = x1 + boxsize
+			y2 = y1 + boxsize
+
+		box = canvas.create_rectangle(x1,y1,x2,y2,fill='white')
+		newbox = Box(box,x1,y1,x2,y2)
+		newbox.info = r
+		allbox.append(newbox)
+		L = ttk.Label(GUI,text='{}\n{}'.format(r['code'],r['name']),background='white')
+		L.place(x=x1 + 5,y=y1 + 5)
 
 #canvas.itemconfig(allbox[5].box,fill='red') #change color of a box
 
