@@ -37,7 +37,20 @@
 ---Class---
 
 - Player
+	- move (int)
+	- name (str)
+	- money (int)
+	- status (str)
+	- property (list)
+	- land (list)
+
 - Banker
+	- name (str)
+	- money
+	- all_property (list)
+	- all_land (dict)
+	- all_lucky_card (dict)
+	- all_command ()
 
 ---Variable---
 
@@ -47,14 +60,21 @@ default_jail = 500 #ติดคุกจ่ายเท่าไร
 default_pass = 2000 #เดินผ่านจุดเริ่มต้น
 default_round = 20
 
+ALL = 36 Div
+- start_point = 1
+- jail = 1
+- land = 26
+- lucky_card = 4
+- command = 4
+
 ---Data---
 - dictionary: 
-	-land (โฉนดที่ดิน)
+	- land (โฉนดที่ดิน)
 		- code:101 (key) รหัส  
 		- name:รัฐสภา ชื่อ 
 		- price:1000 ราคา
 		- rent: 100 ค่าเช่า
-	- property
+	- vproperty
 		- code:201 (key)
 		- name: บ้าน / โรงแรม
 		- price: 5000
@@ -67,6 +87,7 @@ default_round = 20
 	- command:
 		- code: 401 (key)
 		- name: เดินหน้า หรือ ถอยหลัง
+		- detail: เจอผู้ใหญ่ใจดีมีเครื่องบินเดินหน้า 10 ครั้ง
 		- move: 10 / - 10 / 0
 		- stop: True
 		- jail: False
